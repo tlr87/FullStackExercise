@@ -1,7 +1,6 @@
 //evt is long for event aka e
 import React from 'react'
 
-
 export default class Add extends React.Component{
   constructor(props){
     super(props)
