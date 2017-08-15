@@ -3,8 +3,10 @@ var router = express.Router()
 
 var Gate = require('../db/dbGate')
 
+
+
 router.get('/', (req,res) =>{
-  let db = req.app.get('db')
+  var db = req.app.get('db')
   Gate.getData(db)
   .then(dataRows => {
     res.json(dataRows)
@@ -12,9 +14,9 @@ router.get('/', (req,res) =>{
 })
 
 router.post('/', (req,res) =>{
+  var db = req.app.get('db')
   var data = req.body
   console.log("Api hit here is your data =>", data )
-  var db = req.app.get('db')
   db("DataTable").insert(data)
   .then(response =>{
     console.log("then Api",response);
@@ -22,6 +24,18 @@ router.post('/', (req,res) =>{
   })
 })
 
+router.delete('/:id', (req, res) => {
+  var db = req.app.get('db')
+    db("DataTable")
+    .where("id",req.params.id)
+    .delete()
+    .then(() => {
+      res.sendStatus(204)
+    })
+    .catch(err => {
+      res.sendStatus(500).send(err + ' SERVER ERROR')
+    })
+})
 
 
 module.exports = router

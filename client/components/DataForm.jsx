@@ -29,7 +29,7 @@ class DataForm extends React.Component {
     return (
       <form onSubmit={this.submitData.bind(this)}>
         <input name="text" placeholder="text" type="text" onChange={(evt) => this.AddToData(evt)}/>
-        <input name="number" placeholder="123" type="number"onChange={(evt) => this.AddToData(evt)}/>
+        <input name="numbers" placeholder="123" type="number"onChange={(evt) => this.AddToData(evt)}/>
         <input type="submit"/>
       </form>
     )

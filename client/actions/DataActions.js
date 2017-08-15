@@ -1,5 +1,27 @@
 import request from 'superagent'
 
+// Delete
+export const deleteData = (data) => {
+  return {
+    type:  'DELETE_DATA',
+    data
+  }
+}
+
+export function delData(id){
+  return(dispatch) => {
+    request
+    .del('/v1/api/'+id)
+    .end((err, res)=> {
+      if (err){
+        console.log(err.message)
+        return
+      }
+      dispatch(getData())
+    })
+  }
+}
+
 // Get
 
 export const receiveData = (data) => {
