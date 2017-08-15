@@ -3,6 +3,8 @@ function greetings (state = [], action) {
     case 'RECEIVE_GREETINGS':
       return [...action.greetings]
     case 'ADD_DATA':
+      return [...state, action.data]
+    case 'POST_DATA':
       return [...state, action.data] 
     default:
       return state

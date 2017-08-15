@@ -24,40 +24,6 @@ export function getGreetings () {
   }
 }
 
-export const addData = (data) => {
-console.log('addData', data);
-  return{
-    type: "ADD_DATA",
-    data
-  }
-}
-
-export function postData(data){
-  console.log("postData", data);
- return(dispatch) => {
-   request
-      .post('/api/greetings')
-      .send(data)
-      .end((err, res)=>{
-        if(err){
-          console.log(err.message)
-          return
-        }
-        dispatch(addData(data))
-        // or it could be = dispatch(addData(res.body))
-      })
-    }
-}
-
-
-
-
-
-
-
-
-
-
 //some kind of postDataRequest function, that does the superagent request, it will look similar to the getGreetings function
 
 //when you get a response from the postDataRequest function, you will want to dispatch a postData Action

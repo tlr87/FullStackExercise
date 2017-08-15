@@ -21,13 +21,7 @@ router.post('/', (req,res) => {
     console.log("then Api",response);
     res.json(response)
   })
-}
-
-
-)
-
-
-
+})
 
 
 module.exports = router
