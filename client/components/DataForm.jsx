@@ -45,8 +45,9 @@ componentWillUpdate(nextProps){
 
   render() {
       const {text, numbers} = this.state.data
+      const display = this.props.showForm ? 'block' : 'none'
        return (
-          <form onSubmit={this.submitData.bind(this)}>
+          <form onSubmit={this.submitData.bind(this)} style={{display}}>
             <input name="text" placeholder="text" value={text} type="text" onChange={(evt) => this.AddToData(evt)}/>
             <input name="numbers" placeholder="123" type="number" value={numbers} onChange={(evt) => this.AddToData(evt)}/>
             <input type="submit"/>
@@ -58,7 +59,10 @@ componentWillUpdate(nextProps){
 
 
 function mapStateToProps(state){
-  return {dataToEdit:state.dataToEdit}
+  return {
+    dataToEdit:state.dataToEdit,
+    showForm: state.showForm
+  }
 }
 
 
