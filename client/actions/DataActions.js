@@ -1,5 +1,34 @@
 import request from 'superagent'
 
+
+// Put
+
+export const editData = (data) => {
+  return {
+    type:  'EDIT_DATA',
+    data
+  }
+}
+
+
+export function updateData(data, id){
+  return(dispatch) => {
+    request
+    .send(data)
+    // .insert('/v1/api/'+id)
+    .end((err, res)=> {
+      if (err){
+        console.log(err.message)
+        return
+      }
+      dispatch(getData())
+    })
+  }
+}
+
+
+
+
 // Delete
 export const deleteData = (data) => {
   return {

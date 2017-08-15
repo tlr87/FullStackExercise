@@ -1,5 +1,4 @@
 function dataReducers (state =[], action){
-  console.log(action);
   switch (action.type) {
     case 'ADD_DATA':
       return [...state, action.data]
@@ -7,7 +6,6 @@ function dataReducers (state =[], action){
       return [...action.data]
       default:
       return state
-
   }
 }
 

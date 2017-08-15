@@ -5,6 +5,10 @@ var Gate = require('../db/dbGate')
 
 
 
+
+
+// get
+
 router.get('/', (req,res) =>{
   var db = req.app.get('db')
   Gate.getData(db)
@@ -12,6 +16,9 @@ router.get('/', (req,res) =>{
     res.json(dataRows)
   })
 })
+
+
+// Post
 
 router.post('/', (req,res) =>{
   var db = req.app.get('db')
@@ -23,6 +30,8 @@ router.post('/', (req,res) =>{
     res.json(response)
   })
 })
+
+// Delete
 
 router.delete('/:id', (req, res) => {
   var db = req.app.get('db')
@@ -36,6 +45,20 @@ router.delete('/:id', (req, res) => {
       res.sendStatus(500).send(err + ' SERVER ERROR')
     })
 })
+
+// Put
+
+// router.put('/:id'), (req, res) => {
+//   var db = req.app.get('db')
+//     db("DataTable")
+//     .where("id",req.params.id)
+//
+// }
+//
+
+
+
+
 
 
 module.exports = router
