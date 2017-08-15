@@ -4,7 +4,7 @@ import request from 'superagent'
 
 export const receiveData = (data) => {
   return {
-    type:  'GET_DATA',
+    type:  'RECEIVE_DATA',
     data
   }
 }

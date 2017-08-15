@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {getGreetings} from '../actions/greetings'
-import {postData} from '../actions/greetings'
+import {postData} from '../actions/DataActions'
 
 
 class DataForm extends React.Component {
@@ -29,6 +29,7 @@ class DataForm extends React.Component {
     return (
       <form onSubmit={this.submitData.bind(this)}>
         <input name="text" placeholder="text" type="text" onChange={(evt) => this.AddToData(evt)}/>
+        <input name="number" placeholder="123" type="number"onChange={(evt) => this.AddToData(evt)}/>
         <input type="submit"/>
       </form>
     )
