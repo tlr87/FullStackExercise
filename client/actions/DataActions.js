@@ -14,8 +14,8 @@ export const editData = (data) => {
 export function updateData(data, id){
   return(dispatch) => {
     request
+    .put('/v1/api/'+id)
     .send(data)
-    // .insert('/v1/api/'+id)
     .end((err, res)=> {
       if (err){
         console.log(err.message)
@@ -25,9 +25,6 @@ export function updateData(data, id){
     })
   }
 }
-
-
-
 
 // Delete
 export const deleteData = (data) => {
@@ -52,7 +49,6 @@ export function delData(id){
 }
 
 // Get
-
 export const receiveData = (data) => {
   return {
     type:  'RECEIVE_DATA',
@@ -75,7 +71,6 @@ export function getData(){
 }
 
 // Post
-
 export const addData = (data) => {
 console.log('addData', data);
   return{

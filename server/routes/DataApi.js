@@ -46,17 +46,19 @@ router.delete('/:id', (req, res) => {
     })
 })
 
-// Put
-
-// router.put('/:id'), (req, res) => {
-//   var db = req.app.get('db')
-//     db("DataTable")
-//     .where("id",req.params.id)
-//
-// }
-//
-
-
+//Put
+router.put('/:id', (req, res) => {
+  var db = req.app.get('db')
+    db("DataTable")
+    .where("id",req.params.id)
+    .update(req.body)
+    .then(() => {
+      res.sendStatus(204)
+    })
+    .catch(err => {
+      res.sendStatus(500).send(err + ' SERVER ERROR')
+    })
+})
 
 
 

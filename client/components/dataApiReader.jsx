@@ -17,8 +17,6 @@ editItem(item) {
   this.props.dispatch(editData(item))
 }
 
-
-
   render(){
     return(
       <div>
@@ -36,7 +34,6 @@ editItem(item) {
 }
 
 const mapStateToProps = (state) => {
-
   return {data: state.data}
 }
 
