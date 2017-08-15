@@ -1,6 +1,5 @@
 import React from 'react'
 import {HashRouter as Router, Route} from 'react-router-dom'
-import Greetings from './Greetings'
 import DataForm from './DataForm'
 import DataReader from './dataApiReader'
 

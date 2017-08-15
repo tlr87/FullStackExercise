@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {getGreetings} from '../actions/greetings'
 import {postData,updateData } from '../actions/DataActions'
 
 
