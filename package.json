@@ -6,6 +6,8 @@
   "main": "server/index.js",
   "scripts": {
     "postinstall": "webpack",
+    "webpack": "nodemon & webpack --watch",
+    "devc": "concurrently \"nodemon server\" \"webpack --watch\"",
     "dev": "nodemon --watch server server/index & webpack --watch",
     "start": "node server/index",
     "test": "ava  -v  --serial 'test/**/*.test.js'",
@@ -30,10 +32,11 @@
   "author": "EDA",
   "license": "ISC",
   "devDependencies": {
+    "are-we-there-yet": "^1.1.4",
     "ava": "^0.19.1",
     "enzyme": "^2.8.2",
     "nodemon": "^1.11.0",
-    "sqlite3": "^3.1.8",
+    "sqlite3": "^3.1.9",
     "supertest": "^3.0.0"
   },
   "dependencies": {
