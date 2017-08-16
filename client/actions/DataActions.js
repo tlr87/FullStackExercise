@@ -1,5 +1,10 @@
 import request from 'superagent'
 
+const hideForm = () => {
+  return {
+    type: 'HIDE_FORM'
+  }
+}
 
 // Put
 
@@ -21,6 +26,7 @@ export function updateData(data, id){
         console.log(err.message)
         return
       }
+      dispatch(hideForm())
       dispatch(getData())
     })
   }

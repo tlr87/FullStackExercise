@@ -3,10 +3,6 @@ var router = express.Router()
 
 var Gate = require('../db/dbGate')
 
-
-
-
-
 // get
 
 router.get('/', (req,res) =>{
