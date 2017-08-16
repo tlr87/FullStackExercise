@@ -2,7 +2,8 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTableIfNotExists('DataTable', (table) => {
     table.increments('id')
     table.string('text')
-    table.float('numbers')
+    table.float('number')
+    table.float('foreign_id')
   })
 };
 

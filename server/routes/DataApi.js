@@ -18,12 +18,18 @@ router.get('/', (req,res) =>{
 
 router.post('/', (req,res) =>{
   var db = req.app.get('db')
-  var data = req.body
+  var {number, otherText, text} = req.body
+  const data = {text, number}
+  const addToData = {otherText}
   console.log("Api hit here is your data =>", data )
-  db("DataTable").insert(data)
+  db("AddToDataTable").insert(addToData)
   .then(response =>{
-    console.log("then Api",response);
-    res.json(response)
+  data.foreign_id=response[0]
+   db("DataTable").insert(data)
+    .then((response) => {
+      console.log("then Api",response);
+      res.json(response)
+    })
   })
 })
 
