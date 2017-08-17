@@ -23,9 +23,7 @@ editItem(item) {
         <ul>
           <h1>DataTable</h1>
           {this.props.data.map((item,key)=>{
-            return <li key={key}>{item.text}:{item.numbers}{` `}
-            <a onClick={(evt)=> this.deleteItem(item)}>Del</a> {` `}
-            <a onClick={(evt)=> this.editItem(item)}>Edit</a> </li>
+            return <a key={key}>{item.text}:{item.numbers}</a>
           })}
         </ul>
       </div>
