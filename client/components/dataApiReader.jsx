@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-
+import {Link} from 'react-router-dom'
 import {postData, getData, editData, delData} from '../actions/DataActions'
 
 
@@ -23,9 +23,7 @@ editItem(item) {
         <ul>
           <h1>DataTable</h1>
           {this.props.data.map((item,key)=>{
-            return <li key={key}>{item.text}:{item.numbers}{` `}
-            <a onClick={(evt)=> this.deleteItem(item)}>Del</a> {` `}
-            <a onClick={(evt)=> this.editItem(item)}>Edit</a> </li>
+            return <a href={`/users/${item.id}`} key={key}>{item.text}</a>
           })}
         </ul>
       </div>
