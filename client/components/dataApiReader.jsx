@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {postData, getData, getDataId, editData, delData} from '../actions/DataActions'
 
-import {weather} from '../actions/weatherActions'
+import {weather,weatherData} from '../actions/weatherActions'
 
 import DataFormAdd from './DataFormAdd'
 
@@ -12,7 +12,7 @@ class ApiDataReader extends React.Component{
 
 componentDidMount(){
   this.props.dispatch(getData())
-  weather()
+  this.props.dispatch(weatherData())
 }
 
 deleteItem(item) {
@@ -22,12 +22,18 @@ editItem(item) {
   this.props.dispatch(editData(item))
   this.props.dispatch(getData())
 }
-
+componentWillReceiveProps(props) {
+  console.log(props.weather);
+}
   render(){
     return(
       <div>
         <ul>
           <h1>DataTable</h1>
+          {this.props.weather &&
+          <h3>Wellington Temp:{this.props.weather.main.temp}</h3>
+        }
+
           {this.props.data.map((item,key)=>{
             return <li key={key}> <Link to={`/item/${item.id}`} >{item.text}</Link></li>
           })}
@@ -40,7 +46,8 @@ editItem(item) {
 
 
 const mapStateToProps = (state) => {
-  return {data: state.data}
+  console.log({state});
+  return {data: state.data,weather:state.weather }
 
 }
 
