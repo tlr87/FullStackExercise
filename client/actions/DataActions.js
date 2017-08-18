@@ -150,6 +150,7 @@ export function postData(data){
           console.log(err.message)
           return
         }
+        data.id = res.body[0]
         dispatch(addData(data))
         // or it could be = dispatch(addData(res.body))
       })
