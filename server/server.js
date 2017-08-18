@@ -4,6 +4,7 @@ var bodyParser = require('body-parser')
 var cors = require('cors')
 
 var dataApiRoutes = require('./routes/DataApi')
+var weatherRoutes = require('./routes/weather')
 
 var server = express()
 
@@ -13,6 +14,7 @@ server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, '../public')))
 
 server.use('/v1/api', dataApiRoutes)
+server.use('/v1/weather', weatherRoutes)
 
 
 module.exports = function(db) {

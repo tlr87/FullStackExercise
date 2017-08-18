@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {postData, getData, getDataId, editData, delData} from '../actions/DataActions'
+import {weather} from '../actions/weatherActions'
 
 import DataFormAdd from './DataFormAdd'
 
@@ -10,6 +11,7 @@ class ApiDataReader extends React.Component{
 
 componentDidMount(){
   this.props.dispatch(getData())
+  weather()
 
 }
 deleteItem(item) {
