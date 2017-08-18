@@ -26,11 +26,41 @@ export function updateData(data, id){
         console.log(err.message)
         return
       }
-      dispatch(hideForm())
       dispatch(getData())
     })
   }
 }
+
+
+
+// Put with Id
+
+export const editDataId = (data) => {
+  return {
+    type:  'EDIT_DATA_ID',
+    data
+  }
+}
+
+
+export function updateDataId(data, id){
+  return(dispatch) => {
+    request
+    .put('/v1/api/'+id)
+    .send(data)
+    .end((err, res)=> {
+      if (err){
+        console.log(err.message)
+        return
+      }
+      dispatch(getDataId(id))
+    })
+  }
+}
+
+
+
+
 
 // Delete
 export const deleteData = (data) => {
@@ -50,6 +80,29 @@ export function delData(id){
         return
       }
       dispatch(getData())
+    })
+  }
+}
+
+
+// Get id
+export const receiveDataId = (data) => {
+  return {
+    type:  'RECEIVE_DATA_ID',
+    data
+  }
+}
+
+export function getDataId(id){
+  return(dispatch) => {
+    request
+    .get('/v1/api/'+id)
+    .end((err, res)=> {
+      if (err){
+        console.log(err.message)
+        return
+      }
+      dispatch(receiveData(res.body))
     })
   }
 }

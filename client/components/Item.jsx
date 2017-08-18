@@ -3,33 +3,36 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {postData, getData, getDataId, editData, delData} from '../actions/DataActions'
 
-import DataFormAdd from './DataFormAdd'
+import DataFormEdit from './DataFormEdit'
 
 class ApiDataReader extends React.Component{
 
 
 componentDidMount(){
-  this.props.dispatch(getData())
-
+  console.log(this.props)
+  this.props.dispatch(getDataId(this.props.match.params.id))
 }
 deleteItem(item) {
   this.props.dispatch(delData(item.id))
+  this.props.history.push('/')
 }
 editItem(item) {
   this.props.dispatch(editData(item))
-  this.props.dispatch(getData())
 }
 
   render(){
     return(
       <div>
         <ul>
-          <h1>DataTable</h1>
+          <h1>Item</h1>
           {this.props.data.map((item,key)=>{
-            return <li key={key}> <Link to={`/item/${item.id}`} >{item.text}</Link></li>
+            return <li key={key}>{item.text}:{item.numbers}{` `}
+            <a onClick={(evt)=> this.deleteItem(item)}>Del</a> {` `}
+            <a onClick={(evt)=> this.editItem(item)}>Edit</a>
+            </li>
           })}
         </ul>
-        <DataFormAdd/>
+        <DataFormEdit/>
       </div>
     )
   }

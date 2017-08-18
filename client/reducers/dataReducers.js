@@ -4,6 +4,8 @@ function dataReducers (state =[], action){
       return [...state, action.data]
     case 'RECEIVE_DATA':
       return [...action.data]
+    case 'RECEIVE_DATA_ID':
+      return [...action.data]
       default:
       return state
   }

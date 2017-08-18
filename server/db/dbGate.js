@@ -3,7 +3,6 @@ const getData = (db) =>{
   .select('*')
 }
 
-
 module.exports ={
   getData
 }

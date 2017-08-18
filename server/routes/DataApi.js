@@ -13,9 +13,19 @@ router.get('/', (req,res) =>{
   })
 })
 
+// get with id
+router.get('/:id', (req,res) =>{
+  var db = req.app.get('db')
+  var id = req.params.id
+  console.log(id);
+  Gate.getData(db)
+  .where('id', id )
+  .then(dataRows => {
+    res.json(dataRows)
+  })
+})
 
 // Post
-
 router.post('/', (req,res) =>{
   var db = req.app.get('db')
   var data = req.body
@@ -28,7 +38,6 @@ router.post('/', (req,res) =>{
 })
 
 // Delete
-
 router.delete('/:id', (req, res) => {
   var db = req.app.get('db')
     db("DataTable")

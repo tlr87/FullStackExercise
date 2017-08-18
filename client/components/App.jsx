@@ -1,16 +1,22 @@
 import React from 'react'
 import {HashRouter as Router, Route} from 'react-router-dom'
-import DataForm from './DataForm'
+import DataFormAdd from './DataFormAdd'
+import DataFormEdit from './DataFormEdit'
 import DataReader from './dataApiReader'
+import Item from './Item'
+
 
 
 
 const App = () => (
   <Router>
     <div className='app-container'>
-        <DataReader/>
-        <DataForm/>
-        Hello !
+      <Router>
+        <div>
+          <Route path='/item/:id' component={Item}/>
+          <Route exact path='/' component={DataReader}/>
+      </div>
+    </Router>
     </div>
   </Router>
 )
