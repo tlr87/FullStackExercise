@@ -1,8 +1,12 @@
 var path = require('path')
 var express = require('express')
-var bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
+
 var cors = require('cors')
 
+
+
+var UsersApiRoutes = require('./routes/auth')
 var dataApiRoutes = require('./routes/DataApi')
 
 var server = express()
@@ -13,6 +17,8 @@ server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, '../public')))
 
 server.use('/v1/api', dataApiRoutes)
+server.use('/api/v1/auth', UsersApiRoutes)
+
 
 
 module.exports = function(db) {
