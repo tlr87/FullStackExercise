@@ -1,5 +1,5 @@
 // server/db/users.js
-const connection = require('./connection')
+var connection = require('../../knexfile').development
 
 module.exports = {
   createUser,
