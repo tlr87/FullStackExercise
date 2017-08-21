@@ -1,11 +1,11 @@
 const sodium = require('sodium').api
 
 module.exports = {
-  getHash,
+  generate,
   verifyUser
 }
 
-function getHash (password) {
+function generate (password) {
   const passwordBuffer = Buffer.from(password, 'utf8')
   return sodium.crypto_pwhash_str(
     passwordBuffer,

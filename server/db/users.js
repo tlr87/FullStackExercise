@@ -1,5 +1,7 @@
 // server/db/users.js
 var connection = require('../../knexfile').development
+const hash = require('../lib/crypto')
+
 
 module.exports = {
   createUser,
@@ -7,9 +9,10 @@ module.exports = {
 }
 
 function createUser (username, password, conn) {
+  const passwordHash = hash.generate(password)
   const db = conn || connection
   return db('users')
-    .insert({username, hash: password})
+    .insert({username, hash: passwordHash})
 }
 
 function userExists (username, conn) {

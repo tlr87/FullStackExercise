@@ -3,11 +3,8 @@ const passport = require('passport')
 
 const crypto = require('../lib/crypto')
 
-
 // server/routes/auth.js
 const express = require('express')
-
-
 
 const router = express.Router()
 
