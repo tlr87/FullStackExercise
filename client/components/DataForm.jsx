@@ -43,11 +43,12 @@ componentWillUpdate(nextProps){
 
 
   render() {
-      const {text, numbers} = this.state.data
+      const {text, numbers, url} = this.state.data
        return (
           <form onSubmit={this.submitData.bind(this)}>
             <input name="text" placeholder="text" value={text} type="text" onChange={(evt) => this.AddToData(evt)}/>
             <input name="numbers" placeholder="123" type="number" value={numbers} onChange={(evt) => this.AddToData(evt)}/>
+            <input name="url" placeholder="url" type="text" value={url} onChange={(evt) => this.AddToData(evt)}/>
             <input type="submit"/>
           </form>
 

@@ -3,6 +3,7 @@ exports.up = function(knex, Promise) {
     table.increments('id')
     table.string('text')
     table.float('numbers')
+    table.string('url')
   })
 };
 
